@@ -13,8 +13,6 @@ Patch0:		%{name}-compile.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.vamp-plugins.org/
 BuildRequires:	aubio-devel
-BuildRequires:	fftw3-single-devel
-BuildRequires:	libsamplerate-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	vamp-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
