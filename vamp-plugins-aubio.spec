@@ -4,7 +4,7 @@
 Summary:	vamp plugins using aubio
 Name:		vamp-plugins-aubio
 Version:	0.3.2
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/vamp/%{srcname}-%{version}.tar.gz
