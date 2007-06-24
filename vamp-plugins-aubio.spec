@@ -1,7 +1,8 @@
 %define	vampplugindir	%{_libdir}/vamp
-%define srcname	vamp-aubio-plugins
+%define srcname		vamp-aubio-plugins
 
-Summary:	vamp plugins using aubio
+Summary:	Vamp plugins using aubio
+Summary(pl.UTF-8):	Wtyczki Vampa wykorzystujące aubio
 Name:		vamp-plugins-aubio
 Version:	0.3.2
 Release:	1
@@ -24,6 +25,14 @@ audio feature extraction using Paul Brossier's aubio
 
 This set includes three plugins: Onset for onset detection, Pitch for
 pitch tracking, and Notes for combined onset and pitch.
+
+%description -l pl.UTF-8
+Zestaw wtyczek Vampa  (http://www.sonicvisualiser.org/vamp.html) do
+wydobywania cech dźwięku przy użyciu aubio Paula Brossiera
+(http://aubio.piem.org/).
+
+Ten zestaw zawiera wtyczki: Onset to wykrywania początków, Pitch do
+śledzenia wysokości tonów i Notes do łączenia początków i tonów.
 
 %prep
 %setup -q -n %{srcname}-%{version}
