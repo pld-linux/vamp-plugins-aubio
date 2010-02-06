@@ -1,17 +1,17 @@
 %define	vampplugindir	%{_libdir}/vamp
 %define srcname		vamp-aubio-plugins
+%define postver		c
 
 Summary:	Vamp plugins using aubio
 Summary(pl.UTF-8):	Wtyczki Vampa wykorzystujące aubio
 Name:		vamp-plugins-aubio
 Version:	0.3.2
-Release:	1
+Release:	1.%{postver}.1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/vamp/%{srcname}-%{version}.tar.gz
-# Source0-md5:	906b7c943de834640de4f0dbe0d34724
-Patch0:		%{name}-compile.patch
-Patch1:		%{name}-link.patch
+Source0:	http://dl.sourceforge.net/vamp/%{srcname}-%{version}%{postver}.tar.gz
+# Source0-md5:	fe58ab3d220853faa6af86023249d1fa
+Patch0:		%{name}-link.patch
 URL:		http://www.vamp-plugins.org/
 BuildRequires:	aubio-devel
 BuildRequires:	libstdc++-devel
@@ -35,9 +35,8 @@ Ten zestaw zawiera wtyczki: Onset to wykrywania początków, Pitch do
 śledzenia wysokości tonów i Notes do łączenia początków i tonów.
 
 %prep
-%setup -q -n %{srcname}-%{version}
+%setup -q -n %{srcname}-%{version}%{postver}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__make} \
