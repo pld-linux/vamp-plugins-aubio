@@ -11,7 +11,6 @@ License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/vamp/%{srcname}-%{version}%{postver}.tar.gz
 # Source0-md5:	fe58ab3d220853faa6af86023249d1fa
-Patch0:		%{name}-link.patch
 URL:		http://www.vamp-plugins.org/
 BuildRequires:	aubio-devel
 BuildRequires:	libstdc++-devel
@@ -36,12 +35,14 @@ Ten zestaw zawiera wtyczki: Onset to wykrywania początków, Pitch do
 
 %prep
 %setup -q -n %{srcname}-%{version}%{postver}
-%patch0 -p1
 
 %build
 %{__make} \
-	OPTFLAGS="%{rpmcxxflags}" \
-	LDFLAGS="%{rpmldflags}"
+	CXX="%{__cxx}" \
+	CXXFLAGS="%{rpmcxxflags} -DNDEBUG -ffast-math -Wall -I." \
+	LDFLAGS="%{rpmldflags}" \
+	PLUGIN_LIBS="-lvamp-sdk -laubio" \
+	PLUGIN_LDFLAGS="-shared -Wl,-Bsymbolic %{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
